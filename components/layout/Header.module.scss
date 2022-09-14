@@ -1,0 +1,84 @@
+@import 'styles/helpers';
+
+.oooHeader {
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-bottom: calcRem(40);
+
+  @media (max-width: $mobile-breakpoint) {
+    display: flex;
+    align-items: center;
+    margin: 0;
+  }
+}
+
+.mobileMenuTrigger {
+  padding: calcRem(20) calcRem(30) calcRem(20) 0;
+  margin-right: calcRem(30);
+  width: calcRem(68);
+  flex-shrink: 0;
+  flex-grow: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  outline: none;
+  border-right: 1px solid rgba($text-line-grey, 0.5);
+  background: none;
+
+  @media (min-width: $mobile-breakpoint) {
+    display: none;
+  }
+
+  .triggerLine {
+    width: calcRem(36);
+    height: 3px;
+    background-color: $text-color;
+    display: block;
+    transition: all 0.2s ease-in-out;
+  }
+
+  #trigger-line-2 {
+    margin: calcRem(8) 0;
+  }
+
+  &.active {
+
+    #trigger-line-1 {
+      transform: translateY(calcRem(11)) rotate(45deg);
+      width: calcRem(28);
+      background-color: $ooo-red;
+    }
+
+    #trigger-line-2 {
+      width: 0;
+    }
+
+    #trigger-line-3 {
+      transform: translateY(calcRem(-11)) rotate(-45deg);
+      width: calcRem(28);
+      background-color: $ooo-red;
+    }
+  }
+}
+
+.headerLogoDesktop {
+  height: auto;
+  max-width: 100%;
+  width: calcRem(120);
+
+  @media (max-width: $mobile-breakpoint) {
+    display: none;
+  }
+}
+
+.headerLogoMobile {
+  height: auto;
+  max-width: 100%;
+  width: calcRem(100);
+
+  @media (min-width: $mobile-breakpoint) {
+    display: none;
+  }
+}

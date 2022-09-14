@@ -1,0 +1,6 @@
+@import './variables';
+@import './shadows';
+
+@mixin ooo-gradient {
+  background: linear-gradient(135deg, $ooo-orange 0%, $ooo-red 50%, $ooo-purple 100%);
+}

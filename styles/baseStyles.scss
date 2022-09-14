@@ -1,0 +1,36 @@
+@import './variables';
+@import url('https://fonts.googleapis.com/css2?family=Muli:wght@400;700;800;900&display=swap');
+
+html,
+body {
+  font-family: 'Muli', sans-serif;
+  padding: 0;
+  margin: 0;
+  font-size: calcRem($rem-base-size);
+  line-height: 160%;
+  color: $text-color;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: $ooo-orange;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    color: $ooo-purple;
+  }
+}
+
+h1 {
+  font-weight: 800;
+}
+
+img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}

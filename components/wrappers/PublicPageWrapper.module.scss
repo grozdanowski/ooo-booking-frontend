@@ -1,0 +1,62 @@
+@import 'styles/helpers';
+
+.oooBodyWrapper {
+  display: grid;
+  grid-template-columns: $sidebar-base-width $sidebar-section-addon-width+$main-content-width 1fr;
+  grid-gap: 0;
+  min-height: 100vh;
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: $sidebar-tablet-width 1fr;
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (min-width: $xlarge-screen-breakpoint) {
+    grid-template-columns: $sidebar-base-width+calcRem(200) $sidebar-section-addon-width+$main-content-width+calcRem(100) 1fr;
+  }
+}
+
+.oooMainSidebar {
+  background-color: $sidebar-bg;
+  padding: calcRem(40);
+
+  @media (min-width: $tablet-breakpoint) {
+    padding-bottom: 0;
+    position: relative;
+    z-index: 1;
+
+    &:after {
+      width: $sidebar-section-addon-width;
+      left: 100%;
+      background-color: $sidebar-bg;
+      top: 0;
+      bottom: 0;
+      display: block;
+      content: '';
+      position: absolute;
+    }
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    padding: calcRem(10) calcRem(30);
+  }
+}
+
+.oooMainContent {
+  position: relative;
+  z-index: 2;
+
+  @media (max-width: $tablet-breakpoint) {
+    padding-left: calcRem(60);
+    padding-right: calcRem(60);
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    padding-top: calcRem(80);
+    padding-left: calcRem(30);
+    padding-right: calcRem(30);
+  }
+}

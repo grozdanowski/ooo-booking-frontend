@@ -1,0 +1,19 @@
+@import './functions';
+
+$rem-base-size: 16;
+
+$ooo-orange: #F4811F;
+$ooo-red: #EC1D24;
+$ooo-purple: #EB008B;
+$text-color: #000000;
+$text-line-grey: #999999;
+$sidebar-bg: #F3F3F3;
+
+$tablet-breakpoint: 1080px;
+$mobile-breakpoint: 480px;
+$xlarge-screen-breakpoint: 1930px;
+
+$sidebar-base-width: calcRem(230);
+$sidebar-tablet-width: calcRem(220);
+$sidebar-section-addon-width: calcRem(100);
+$main-content-width: calcRem(720);

@@ -1,0 +1,119 @@
+@import 'styles/helpers';
+
+.newsListContainer {
+
+}
+
+.listItem {
+  display: grid;
+  grid-template-columns: calcRem(145) 1fr;
+  grid-gap: calcRem(30);
+  margin: 0 0 calcRem(30);
+
+  @media(max-width: $mobile-breakpoint) {
+    grid-template-columns: calcRem(100) 1fr;
+  }
+
+  .itemLeft {
+    
+    .imageLink {
+      position: relative;
+      display: block;
+
+      img {
+        width: 100%;
+        height: auto;
+        position: relative;
+        z-index: 1;
+        display: block;
+      }
+
+      &:after {
+        position: absolute;
+        z-index: 2;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        @include ooo-gradient;
+        display: block;
+        content: '';
+        mix-blend-mode: color;
+        transition: all 0.3s ease-in-out;
+        opacity: 1;
+      }
+
+      &:hover {
+
+        &:after {
+          opacity: 0;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .articleDate {
+      display: block;
+      width: 100%;
+      font-size: calcRem(12);
+      color: #fff;
+      background-color: $ooo-purple;
+      text-align: center;
+      padding: calcRem(3) calcRem(5);
+      box-sizing: border-box;
+    }
+  }
+
+  .itemRight {
+    text-decoration: none;
+    color: $text-color;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      color: $ooo-purple;
+      cursor: pointer;
+    }
+
+    .articleTitle {
+      margin: 0 0 calcRem(20);
+      font-size: calcRem(32);
+      line-height: 130%;
+      font-weight: 800;
+
+      @media(max-width: $mobile-breakpoint) {
+        font-size: calcRem(24);
+      }
+    }
+
+    .articleExcerpt {
+      font-size: calcRem(13);
+      font-weight: normal;
+    }
+  }
+}
+
+.ctaWrapper {
+  text-align: center;
+  padding: calcRem(30) 0 0;
+  margin: calcRem(30) 0 0;
+  border-top: 1px solid $text-line-grey;
+  display: flex;
+  justify-content: center;
+
+  .ctaButton {
+    padding: calcRem(15) calcRem(30);
+    display: inline-block;
+    border: 2px solid $ooo-purple;
+    border-radius: calcRem(50);
+    color: $ooo-purple;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background-color: $ooo-purple;
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

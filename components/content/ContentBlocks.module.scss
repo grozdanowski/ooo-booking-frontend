@@ -1,0 +1,113 @@
+@import 'styles/helpers';
+
+.blockStandardSidebar {
+  display: grid;
+  grid-template-columns: $sidebar-section-addon-width 1fr;
+  grid-column-gap: calcRem(60);
+
+  @media (max-width: $tablet-breakpoint) {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebarSection {
+    padding: calcRem(40) calcRem(40) calcRem(40) 0;
+    background-color: $sidebar-bg;
+    color: $text-line-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    @media (max-width: $tablet-breakpoint) {
+      display: none;
+    }
+
+    .sectionLabel {
+      font-weight: 800;
+      font-size: calcRem(13);
+      flex-grow: 0;
+      flex-shrink: 0;
+      margin-bottom: calcRem(15);
+    }
+
+    .sidebarLine {
+      flex-grow: 1;
+      flex-shrink: 1;
+      height: 100%;
+      width: 1px;
+      display: block;
+      background-color: $text-line-grey;
+      opacity: 0.5;
+    }
+  }
+
+  .blockContent {
+    padding: calcRem(40) 0;
+  }
+}
+
+.blockReducedPadding {
+
+  .sidebarSection, .blockContent {
+    padding-top: calcRem(20);
+    padding-bottom: calcRem(20);
+  }
+}
+
+.staticTitleSection {
+  padding-top: calcRem(50);
+
+  @media (max-width: $mobile-breakpoint) {
+    padding-top: calcRem(40);
+  }
+}
+
+.articleTitle {
+
+  .sidebarSection {
+    padding-top: 0;
+  }
+
+  .blockContent {
+    padding-top: 0;
+    padding-bottom: calcRem(30);
+    border-bottom: 1px solid rgba($text-line-grey, 0.5);
+
+    h1 {
+      margin-top: 0;
+    }
+  }
+}
+
+.h1TitleFuzzy {
+  font-size: calcRem(112);
+  font-weight: 900;
+  line-height: 105%;
+  margin: 0 0 calcRem(40);
+  text-shadow: -3px -3px 0px rgba($ooo-orange, 0.5), 3px 3px 0px rgba($ooo-red, 0.5);
+
+  @media (max-width: $tablet-breakpoint) {
+    font-size: calcRem(82);
+  }
+
+  @media (max-width: $mobile-breakpoint) {
+    font-size: calcRem(64);
+    text-shadow: -2px -2px 0px rgba($ooo-orange, 0.5), 2px 2px 0px rgba($ooo-red, 0.5);
+  }
+}
+
+.bigOooTitle {
+
+  .h1TitleFuzzy {
+    margin-top: calcRem(40);
+  }
+
+  .subtitle {
+    font-size: calcRem(20);
+    line-height: 160%;
+    margin: calcRem(60) 0 0;
+
+    @media (max-width: $mobile-breakpoint) {
+      font-size: calcRem(18);
+    }
+  }
+}

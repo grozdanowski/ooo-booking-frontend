@@ -1,0 +1,100 @@
+@import 'styles/helpers';
+
+.sideMenu {
+  display: block;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: calcRem(10) 0 calcRem(10) calcRem(20);
+  border-left: 1px solid rgba($text-line-grey, 0.5);
+
+  @media (max-width: $mobile-breakpoint) {
+    display: none;
+    margin-top: calcRem(30);
+    margin-bottom: calcRem(80);
+  }
+
+  li {
+    list-style-type: none;
+  }
+}
+
+.mainNavGroup {
+  padding-left: 0;
+  margin: 0;
+}
+
+.submenuGroup {
+  margin: 0;
+  overflow: hidden;
+  height: 0;
+  padding: 0 0 0 calcRem(10);
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+}
+
+.mainItem {
+  padding: calcRem(10) 0;
+  transition: all 0.3s ease-in-out;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 0;
+    left: calcRem(-21);
+    top: calcRem(5);
+    bottom: calcRem(5);
+    background-color: $ooo-purple;
+  }
+
+  &.active {
+
+    .itemLabel {
+      color: $ooo-purple;
+    }
+
+    &:before {
+      width: calcRem(7);
+    }
+  }
+
+  &.itemExpanded {
+
+    .itemLabel {
+      color: $text-line-grey;
+    }
+
+    .submenuGroup {
+      height: unset;
+      padding: calcRem(20) 0 0 calcRem(10);
+      opacity: 1;
+    }
+  }
+}
+
+.itemLabel {
+  font-weight: 800;
+  transition: all 0.3s ease-in-out;
+  color: $text-color;
+
+  &:hover {
+    cursor: pointer;
+    color: $ooo-purple;
+  }
+}
+
+.subitemLabel {
+  font-weight: normal;
+  transition: all 0.3s ease-in-out;
+  color: $text-color;
+
+  &:hover {
+    cursor: pointer;
+    color: $ooo-orange;
+  }
+}
+
+.menuSpacer {
+  height: calcRem(30);
+}
