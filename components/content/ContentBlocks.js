@@ -177,7 +177,7 @@ export function ArtistTitle ({ title, genre, webUrl, facebook, instagram, twitte
           {genre}
         </div>
         {webUrl && renderIcons && (
-          <a href={webUrl} className={styles.artistWebLink} target='_blank' rel='noreferrer'>{webUrl}</a>
+          <a href={webUrl} className={styles.artistWebLink} target='_blank' rel='noreferrer'>{webUrl.replace('https://www.', '').replace('www.', '')}</a>
         )}
         <div className={styles.artistSocial}>
           {facebook && renderIcons && (
