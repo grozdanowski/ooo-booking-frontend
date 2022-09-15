@@ -157,7 +157,7 @@ export function ArtistTitle ({ title, genre, webUrl, facebook, instagram, twitte
 
   React.useEffect(() => {
     setRenderIcons(true);
-  })
+  }, [])
 
   const router = useRouter();
 
