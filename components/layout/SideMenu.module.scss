@@ -8,13 +8,30 @@
   border-left: 1px solid rgba($text-line-grey, 0.5);
 
   @media (max-width: $mobile-breakpoint) {
-    display: none;
-    margin-top: calcRem(30);
-    margin-bottom: calcRem(80);
+    margin-top: calcRem(0);
+    margin-bottom: calcRem(0);
+    max-height: 0;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    &.menuActive {
+      max-height: calcRem(4000);
+      margin-top: calcRem(30);
+      margin-bottom: calcRem(80);
+      padding-top: calcRem(10);
+      padding-bottom: calcRem(20);
+    }
   }
 
   li {
     list-style-type: none;
+    font-size: calcRem(16);
+
+    @media (min-width: 1450px) {
+      font-size: calcRem(18);
+    }
   }
 }
 

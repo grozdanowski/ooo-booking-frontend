@@ -39,23 +39,23 @@
     transition: all 0.2s ease-in-out;
   }
 
-  #trigger-line-2 {
+  .triggerLine2 {
     margin: calcRem(8) 0;
   }
 
   &.active {
 
-    #trigger-line-1 {
+    .triggerLine1 {
       transform: translateY(calcRem(11)) rotate(45deg);
       width: calcRem(28);
       background-color: $ooo-red;
     }
 
-    #trigger-line-2 {
+    .triggerLine2 {
       width: 0;
     }
 
-    #trigger-line-3 {
+    .triggerLine3 {
       transform: translateY(calcRem(-11)) rotate(-45deg);
       width: calcRem(28);
       background-color: $ooo-red;

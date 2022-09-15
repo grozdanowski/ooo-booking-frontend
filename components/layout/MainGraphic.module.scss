@@ -59,19 +59,23 @@
   max-width: 130%;
   min-width: calcRem(640);
   display: block;
-  transition: filter 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   filter: drop-shadow(0 0 0 rgba($ooo-orange, 0.5));
   transition-delay: 1s;
+  transform: translateX(calcRem(40));
 
   &.go {
     filter: drop-shadow(-8px -8px 0 rgba($ooo-orange, 0.5));
+    transform: translateX(calcRem(0));
   }
 
   &.image-clone-1.go {
     filter: drop-shadow(8px 8px 0 rgba($ooo-purple, 0.5));
+    transform: translateX(calcRem(0));
   }
 
   &.image-clone-2.go {
     filter: drop-shadow(2px -6px 0 rgba($ooo-red, 0.5));
+    transform: translateX(calcRem(0));
   }
 }

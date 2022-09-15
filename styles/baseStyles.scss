@@ -25,6 +25,15 @@ a {
   }
 }
 
+p, li {
+  font-size: calcRem(18);
+  line-height: 170%;
+  
+  @media (max-width: $mobile-breakpoint) {
+    font-size: calcRem(16);
+  }
+}
+
 h1 {
   font-weight: 800;
 }
@@ -33,4 +42,17 @@ img {
   width: 100%;
   max-width: 100%;
   height: auto;
+}
+
+blockquote {
+  font-style: italic;
+  font-size: calcRem(22);
+  line-height: 180%;
+  margin: calcRem(15) 0;
+  padding: calcRem(10) 0 calcRem(10) calcRem(20);
+  border-left: 2px solid $ooo-purple;
+
+  @media (max-width: $mobile-breakpoint) {
+    font-size: calcRem(18);
+  }
 }

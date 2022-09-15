@@ -3,7 +3,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { BlockWrapper } from './ContentBlocks'
+import imageUrlBuilder from '@sanity/image-url'
 import styles from './NewsList.module.scss'
+import SanityClient from '../../utils/SanityClient'
+import Moment from 'react-moment'
+
+const imageBuilder = imageUrlBuilder(SanityClient);
+
+function urlFor(source) {
+  return imageBuilder.image(source)
+}
 
 const testNewsItems = [
   {
@@ -26,6 +35,10 @@ export default function NewsList ({ news = testNewsItems, paginate = false, page
 
   const router = useRouter();
 
+  if (!news.length) {
+    return
+  }
+
   return (
     <BlockWrapper sectionName={(router.locale === 'hr') ? 'Vijesti' : 'News'}>
       <div className={styles.newsListContainer}>
@@ -35,17 +48,17 @@ export default function NewsList ({ news = testNewsItems, paginate = false, page
               key={`article-${index}`}
               className={styles.listItem}
             >
-              <Link href={`/news/${article.id}`}>
+              <Link href={`/news/${article.slug.current}`}>
                 <div className={styles.itemLeft}>
                   <div className={styles.imageLink}>
-                    <img src={article.article_photo} alt={article.title} />
+                    <img src={urlFor(article.mainImage).width(200).height(200).url()} alt={article.title} />
                   </div>
                   <span className={styles.articleDate}>
-                    {article.date}
+                    <Moment date={article._createdAt} format='DD.MM.YYYY.' />
                   </span>
                 </div>
               </Link>
-              <Link href={`/news/${article.id}`}>
+              <Link href={`/news/${article.slug.current}`}>
                 <div className={styles.itemRight}>
                   <h2 className={styles.articleTitle}>{article.title}</h2>
                   <div className={styles.articleExcerpt}>{article.excerpt}</div>

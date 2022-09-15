@@ -4,8 +4,13 @@ import Head from 'next/head'
 import Header from '../layout/Header'
 import SideMenu from '../layout/SideMenu'
 import MainGraphic from '../layout/MainGraphic'
+import React from 'react'
+import Footer from '../layout/Footer'
+import Script from 'next/script'
 
-export default function PublicPageWrapper({ language = 'hr', sideGraphic, children }) {
+export default function PublicPageWrapper({ sideGraphic, sideGraphicType, menuItems, siteGlobalSettings, children }) {
+
+  const [mobileMenuActive, setMobileMenuActive] = React.useState(false);
 
   return (
     <div className={styles.oooBodyWrapper}>
@@ -32,10 +37,23 @@ export default function PublicPageWrapper({ language = 'hr', sideGraphic, childr
         <meta name="msapplication-wide310x150logo" content="favicon/mstile-310x150.png" />
         <meta name="msapplication-square310x310logo" content="favicon/mstile-310x310.png" />
       </Head>
+      {siteGlobalSettings.googleAnalyticsCode && (
+        <Script id='google-analytics' strategy='afterInteractive'>
+          {`
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', '${siteGlobalSettings.googleAnalyticsCode}', 'auto');
+            ga('send', 'pageview');
+          `}
+        </Script>
+      )}
 
       <div className={styles.oooMainSidebar}>
-        <Header />
-        <SideMenu />
+        <Header mobileMenuActive={mobileMenuActive} setMobileMenuActive={setMobileMenuActive} />
+        <SideMenu menuItems={menuItems} mobileMenuActive={mobileMenuActive} setMobileMenuActive={setMobileMenuActive} />
       </div>
 
       <TransitionEffect>
@@ -45,10 +63,10 @@ export default function PublicPageWrapper({ language = 'hr', sideGraphic, childr
       </TransitionEffect>
 
       <TransitionEffect>
-        <MainGraphic />
+        <MainGraphic imgSrc={sideGraphic} graphicType={sideGraphicType} />
       </TransitionEffect>
 
-      {/* footer */}
+      <Footer />
 
     </div>
   )

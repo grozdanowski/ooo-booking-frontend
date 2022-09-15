@@ -6,21 +6,30 @@ import { BigOooTitle } from '/components/content/ContentBlocks'
 import PublicPageWrapper from '/components/wrappers/PublicPageWrapper'
 import { useRouter } from 'next/router'
 
-export default function Home({ menuItems, siteGlobalSettings, pageContent, news }) {
+export default function FourOuFour({ menuItems, siteGlobalSettings, pageContent, news }) {
 
   const router = useRouter();
 
   return (
-    <PublicPageWrapper menuItems={menuItems} siteGlobalSettings={siteGlobalSettings}>
+    <PublicPageWrapper
+      menuItems={menuItems}
+      siteGlobalSettings={siteGlobalSettings}
+      sideGraphic='/img/decorative/404-googly.png'
+    >
       <Head>
-        <title>{siteGlobalSettings.siteTitle[router.locale]}</title>
+        <title>404 | {siteGlobalSettings.siteTitle[router.locale]}</title>
         <meta name="description" content={siteGlobalSettings.siteDescription[router.locale]} />
       </Head>
       <BigOooTitle
-        title={pageContent.mainTitle}
-        content={pageContent.subtitleText}
+        title={{
+          en: `Sorry, we can't find that page!`,
+          hr: `Hm, izgleda da stranica koju tražiš ne postoji :/`,
+        }}
+        content={{
+          en: `How about trying a different one?`,
+          hr: `Možda da probaš neku drugu?`,
+        }}
       />
-      <NewsList news={news} />
     </PublicPageWrapper>
   )
 }
