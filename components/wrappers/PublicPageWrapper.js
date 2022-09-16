@@ -56,15 +56,11 @@ export default function PublicPageWrapper({ sideGraphic, sideGraphicType, menuIt
         <SideMenu menuItems={menuItems} mobileMenuActive={mobileMenuActive} setMobileMenuActive={setMobileMenuActive} />
       </div>
 
-      <TransitionEffect>
-        <main className={styles.oooMainContent}>
-          {children}
-        </main>
-      </TransitionEffect>
+      <main className={styles.oooMainContent}>
+        {children}
+      </main>
 
-      <TransitionEffect>
-        <MainGraphic imgSrc={sideGraphic} graphicType={sideGraphicType} />
-      </TransitionEffect>
+      <MainGraphic imgSrc={sideGraphic} graphicType={sideGraphicType} />
 
       <Footer />
 
