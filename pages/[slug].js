@@ -57,6 +57,7 @@ export async function getStaticProps(context) {
       siteGlobalSettings: siteGlobalSettings,
       menuItems: menuItems.menuItems,
       slug: slug,
-    }
+    },
+    revalidate: 10,
   }
 }

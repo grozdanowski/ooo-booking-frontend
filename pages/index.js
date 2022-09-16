@@ -38,6 +38,7 @@ export async function getStaticProps({ locale }) {
       siteGlobalSettings: siteGlobalSettings,
       menuItems: menuItems.menuItems,
       news: news,
-    }
+    },
+    revalidate: 10,
   }
 }

@@ -87,6 +87,7 @@ export async function getStaticProps(context) {
       menuItems: menuItems.menuItems,
       slug: slug,
       locale: context.locale,
-    }
+    },
+    revalidate: 10,
   }
 }

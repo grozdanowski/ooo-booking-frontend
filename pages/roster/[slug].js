@@ -104,6 +104,7 @@ export async function getStaticProps(context) {
       menuItems: menuItems.menuItems,
       slug: slug,
       allArtists: allArtists,
-    }
+    },
+    revalidate: 10,
   }
 }
